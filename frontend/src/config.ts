@@ -12,7 +12,7 @@ export const VENDRIX_API = {
   users: {
     // Queries
     getAll: {
-      uri: () => `api/users` as const,
+      uri: () => `http://localhost:3000/api/users` as const,
       defaultFetchOptions: { method: 'GET' as const },
 
       queryKey: () => `users` as const,
@@ -25,7 +25,7 @@ export const VENDRIX_API = {
 
     // Mutations
     create: {
-      uri: () => `api/users` as const,
+      uri: () => `http://localhost:3000/api/users` as const,
       defaultFetchOptions: { method: 'POST' as const },
 
       mutationOptions: <TData extends User>(queryClient: QueryClient) => ({

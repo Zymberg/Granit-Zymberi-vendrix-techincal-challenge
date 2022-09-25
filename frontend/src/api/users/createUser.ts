@@ -24,5 +24,8 @@ export default function createUser(data: CreateUser) {
   return FetchClient(uri(), {
     ...defaultFetchOptions,
     data,
-  }).then((r) => r.data as DataReturned);
+  }).then((r) =>{
+    console.log("sentData" + data.name.familyName)
+    r.data as DataReturned
+  } );
 }

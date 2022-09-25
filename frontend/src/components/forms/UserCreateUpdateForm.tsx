@@ -7,14 +7,17 @@ import {
   defaultValuesUser,
   updateUserSchema,
   User,
+  userRoles,
 } from '../../schemas/users';
 // Hooks
 import useCreateUser from '../../hooks/users/useCreateUser';
 import useUpdateUser from '../../hooks/users/useUpdateUser';
 // Components
 import { LoadingButton } from '@mui/lab';
-import { Stack, Button, Box, Container, Typography } from '@mui/material';
+import { Stack, Button, Box, Container, Typography, Select } from '@mui/material';
 import StringInput from '../input/StringInput';
+import StringSelect from '../select/StringSelect';
+import { json } from 'stream/consumers';
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 
@@ -35,6 +38,8 @@ interface Props {
   user?: User;
   onClose?: VoidFunction;
 }
+var foo:string[] = ['a','b']; 
+
 export default function UserCreateUpdateForm({ user, onClose }: Props) {
   // HOOKS
   const createUserMutation = useCreateUser();
@@ -99,16 +104,69 @@ export default function UserCreateUpdateForm({ user, onClose }: Props) {
         <Stack spacing={3} sx={{ p: 3, pb: 0 }}>
           <FormProvider {...formMethods}>
             <form
-              onSubmit={handleSubmit((data) => handleSave(data))}
+              onSubmit={handleSubmit((data) => {
+                console.log("Data+++: " + JSON.stringify(data))
+                handleSave(data)
+              })}
               className='form'
             >
-              <Stack spacing={2}>
+            
+               <Stack spacing={2} margin="20px 0px 0px 0px">
+                <StringSelect
+                  fieldName='role'
+                  control={control}
+                  options={userRoles}
+                  />
+             
+                
+              </Stack>
+
+              <Stack spacing={2} margin="20px 0px 0px 0px">
+                <StringInput
+                  fieldName='name.suffix'
+                  label='Suffix'
+                  control={control}
+                />
+              </Stack>
+
+              <Stack spacing={2} margin="20px 0px 0px 0px" >
+                <StringInput
+                  fieldName='name.title'
+                  label='Title'
+                  control={control}
+                />
+              </Stack>
+             
+              <Stack spacing={2} margin="20px 0px 0px 0px">
+                <StringInput
+                  fieldName='name.givenName'
+                  label='Given Name'
+                  control={control}
+                />
+              </Stack>
+              
+              <Stack spacing={2} margin="20px 0px 0px 0px">
                 <StringInput
                   fieldName='name.middleName'
                   label='Middle Name'
                   control={control}
                 />
               </Stack>
+              <Stack spacing={2} margin="20px 0px 0px 0px">
+                <StringInput
+                  fieldName='name.familyName'
+                  label='Family Name'
+                  control={control}
+                />
+              </Stack>
+              <Stack spacing={2} margin="20px 0px 0px 0px">
+                <StringInput
+                  fieldName='email'
+                  label='Email'
+                  control={control}
+                />
+              </Stack>
+
 
               {/* Submit Buttons */}
               <Stack direction='row' sx={{ justifyContent: 'flex-end', mt: 2 }}>

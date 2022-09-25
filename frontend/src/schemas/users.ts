@@ -33,13 +33,13 @@ export const User = z.object({
   _id: z.string().uuid(),
   role: userRoleSchema,
   name: z.object({
-    familyName: z.string().min(10).max(3000),
-    givenName: z.string().min(10).max(2000),
-    middleName: z.string().optional(),
-    suffix: z.string().optional(),
-    title: z.string().optional(),
+    familyName: z.string().min(1,{ message: "Family Name cannot be empty" }).max(50).trim(),
+    givenName: z.string().min(1,{ message: "Name cannot be empty" }).max(50).trim(),
+    middleName: z.string().trim().optional(),
+    suffix: z.string().trim().optional(),
+    title: z.string().trim().optional(),
   }),
-  email: z.string().email(),
+  email: z.string().email().trim(),
 });
 export type User = z.infer<typeof User>;
 

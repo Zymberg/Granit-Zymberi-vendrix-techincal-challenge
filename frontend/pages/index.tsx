@@ -33,9 +33,11 @@ const {
 // * Server Side Rendering * //
 export const getServerSideProps: GetServerSideProps = async () => {
   // Init React query
+
   const queryClient = new QueryClient();
 
   // Prefetch data
+  
   await queryClient.prefetchQuery(getAll.queryKey(), () => getAllUsersAPI());
 
   // Return hydrated query as props
@@ -48,7 +50,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const Home: NextPage = () => {
   // HOOKS
+
   const allUsersQuery = useGetAllUsers();
+  console.log("USers: " + allUsersQuery.data?.data)
 
   return (
     <Container maxWidth='lg'>
@@ -85,6 +89,7 @@ const Home: NextPage = () => {
           sx={{ background: (theme) => theme.palette.background.neutral }}
         >
           <CardContent>
+            
             {allUsersQuery?.data?.data ? (
               <UsersList users={allUsersQuery.data.data} />
             ) : null}

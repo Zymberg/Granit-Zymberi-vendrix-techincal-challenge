@@ -42,13 +42,13 @@ Take some time to familiarize yourself with the codebase. Notice how the folder 
 
 Because we are using a Next.js frontend and accessing a locally hosted API, we must map client-side requests appropriately to avoid CORS issues.
 
-- [ ] Adjust app configuration in "next.config.js".
+- [x] Adjust app configuration in "next.config.js".
 
 ### Step 1.3. Configure schemas
 
 Think about what data validations would be useful for a "users" document collection.
 
-- [ ] Adjust schemas in "src/schemas/users.ts".
+- [x] Adjust schemas in "src/schemas/users.ts".
 
 <br>
 
@@ -60,7 +60,7 @@ Think about what data validations would be useful for a "users" document collect
 
 The form in "src/components/forms/UserCreateUpdateForm.tsx" has been started to help demonstrate how an input component can be used with "react-hook-form" and MUI to construct form data.
 
-- [ ] Add the missing input fields and connect them to the form.
+- [x] Add the missing input fields and connect them to the form.
 
 <br>
 
@@ -76,7 +76,7 @@ Zod schemas includes built-in validation methods to make sure the input data is 
 
 Validation is automatically ran within the "useForm" hook via the "zodResolver" using "onTouched" mode (validates on input touch and following onChange events..
 
-- [ ] Ensure that all form fields are validated before being submitted.
+- [x] Ensure that all form fields are validated before being submitted.
 
 ### Step 3.2. Submit data to API
 
@@ -86,7 +86,7 @@ The "handleSave" function has already been built with the correct "react-query" 
 
 **Do not worry about implementing the "updateUser" mutation. Although the form is built to handle both cases and the mutation exists for "updateUser", we are only implementing the "createUser" mutation.**
 
-- [ ] Submit valid data to API
+- [x] Submit valid data to API
 
 <br>
 

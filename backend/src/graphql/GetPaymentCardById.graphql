@@ -1,5 +1,4 @@
-#Must Get Client Token
-query GetPaymentCardById($paymentCardId: ID!) {
+query GetPaymetCardById($paymentCardId: ID!) {
   node(id: $paymentCardId) {
     ... on PaymentCard {
       id

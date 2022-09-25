@@ -28,6 +28,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.32.0",
     "react-query": "^3.39.1",
+    "redis": "^4.3.1",
     "typeface-mulish": "^1.1.13",
     "zod": "^3.17.3"
   },
